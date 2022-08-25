@@ -1,0 +1,26 @@
+from . import errors as errors
+from _typeshed import Incomplete
+
+logger: Incomplete
+
+class Folder:
+    client: Incomplete
+    bucket: Incomplete
+    def __init__(
+        self,
+        endpoint,
+        bucket,
+        access_key,
+        secret_key,
+        *,
+        secure: bool = ...,
+        proxy_server: Incomplete | None = ...,
+        **_
+    ) -> None: ...
+    def put(self, name, buffer): ...
+    def fput(self, local_file, name, metadata: Incomplete | None = ...): ...
+    def get(self, name): ...
+    def fget(self, name, local_filepath): ...
+    def exists(self, name): ...
+    def get_size(self, name): ...
+    def remove_object(self, name) -> None: ...

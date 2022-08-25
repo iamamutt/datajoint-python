@@ -1,0 +1,13 @@
+from .errors import (
+    DataJointError as DataJointError,
+    _support_adapted_types as _support_adapted_types,
+)
+from .plugin import type_plugins as type_plugins
+
+class AttributeAdapter:
+    @property
+    def attribute_type(self) -> None: ...
+    def get(self, value) -> None: ...
+    def put(self, obj) -> None: ...
+
+def get_adapter(context, adapter_name): ...

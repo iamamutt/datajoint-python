@@ -1,0 +1,29 @@
+from .errors import DuplicateError as DuplicateError
+from .hash import key_hash as key_hash
+from .heading import Heading as Heading
+from .settings import config as config
+from .table import Table as Table
+from _typeshed import Incomplete
+
+ERROR_MESSAGE_LENGTH: int
+TRUNCATION_APPENDIX: str
+
+class JobTable(Table):
+    database: Incomplete
+    _connection: Incomplete
+    _heading: Incomplete
+    _support: Incomplete
+    _definition: Incomplete
+    _user: Incomplete
+    def __init__(self, conn, database) -> None: ...
+    @property
+    def definition(self): ...
+    @property
+    def table_name(self): ...
+    def delete(self) -> None: ...
+    def drop(self) -> None: ...
+    def reserve(self, table_name, key): ...
+    def complete(self, table_name, key) -> None: ...
+    def error(
+        self, table_name, key, error_message, error_stack: Incomplete | None = ...
+    ) -> None: ...
