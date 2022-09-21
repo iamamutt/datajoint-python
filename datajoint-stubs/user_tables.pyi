@@ -1,8 +1,12 @@
+from typing import ClassVar
+
+from _typeshed import Incomplete
+
 from .autopopulate import AutoPopulate as AutoPopulate
 from .errors import DataJointError as DataJointError
 from .table import Table as Table
-from .utils import ClassProperty as ClassProperty, from_camel_case as from_camel_case
-from _typeshed import Incomplete
+from .utils import ClassProperty as ClassProperty
+from .utils import from_camel_case as from_camel_case
 
 _base_regexp: str
 supported_class_attrs: Incomplete
@@ -24,8 +28,9 @@ class UserTable(Table, metaclass=TableMeta):
     _support: Incomplete
     tier_regexp: Incomplete
     _prefix: Incomplete
-    @property
-    def definition(self) -> None: ...
+
+    definition: ClassVar[str]
+
     def connection(cls): ...
     def table_name(cls): ...
     def full_table_name(cls): ...
